@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b3d43ec-fa43-44e4-97a3-215515f8842c" name="Changes" comment="s" />
+    <list default="true" id="9b3d43ec-fa43-44e4-97a3-215515f8842c" name="Changes" comment="s">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/objectNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NodeLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NodeLink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Path.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ReadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/recordNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/botTest/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/botTest/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/GridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/StackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/StackTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,12 +60,12 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/Java/IntelliJ IDEA/Java/bot",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/Java/IntelliJ IDEA/Java/BotRoute",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.45057473",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "inlay.hints"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -67,12 +79,12 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GridTest.fillGrid">
+  <component name="RunManager" selected="JUnit.GridTest.createGrid">
     <configuration name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.NodeLink" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,7 +99,7 @@
       <module name="bot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.NodeLink" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,7 +115,7 @@
       <module name="bot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.NodeLink" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,7 +131,7 @@
       <module name="bot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.NodeLink" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,7 +146,7 @@
       <module name="bot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.NodeLink" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,8 +160,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GridTest.fillGrid" />
         <item itemvalue="JUnit.GridTest.createGrid" />
+        <item itemvalue="JUnit.GridTest.fillGrid" />
         <item itemvalue="JUnit.GridTest" />
         <item itemvalue="JUnit.StackTest" />
         <item itemvalue="JUnit.StackTest.push" />
@@ -172,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651833090332</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="s">
+      <created>1651833276760</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651833276760</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,8 +235,18 @@
           </properties>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Stack.java</url>
+          <line>6</line>
+          <properties field="top" class="org.example.Stack" />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bot$GridTest_createGrid.ic" NAME="GridTest.createGrid Coverage Results" MODIFIED="1651700578746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

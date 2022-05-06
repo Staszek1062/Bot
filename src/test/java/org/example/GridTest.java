@@ -11,10 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class GridTest {
-    List<Integer> cord= new ArrayList<>(3);
+    final List<Integer> cord= new ArrayList<>(3);
     Grid grid;
     Stack stack;
-    String s= "check";
+    final String s= "check";
     StringJoiner temp;
     int tests =5;
     char charTab[];
@@ -40,14 +40,14 @@ public class GridTest {
         grid.createGrid(charTab);
 
         int[] tab = new int[]{0, 0};
-        assertThat(grid.getNode(tab).i()).isEqualTo('c');
+        assertThat(grid.getNode(tab).getIndex()).isEqualTo('c');
         tab[0]=1;
         tab[1]=1;
-        assertThat(grid.getNode(tab).i()).isEqualTo('h');
-        assertThat(grid.getNode(tab).stack().getVector().get(4)).isEqualTo("");
+        assertThat(grid.getNode(tab).getIndex()).isEqualTo('h');
+        assertThat(grid.getNode(tab).getStack().getVector().get(4)).isEqualTo("");
         tab[0]=2;
         tab[1]=2;
-        assertThat(grid.getNode(tab).i()).isEqualTo('e');
+        assertThat(grid.getNode(tab).getIndex()).isEqualTo('e');
 
     }
 
@@ -58,8 +58,8 @@ public class GridTest {
                         {"13","9","1","4"}};
 
         grid.fillGrid(input);
-        assertThat(grid.getNode(new int[]{4, 1}).stack().getVector().get(4)).isEqualTo("139");
-        assertThat(grid.getNode(new int[]{9, 1}).stack().getVector().get(4)).isEqualTo("13");
+        assertThat(grid.getNode(new int[]{4, 1}).getStack().getVector().get(4)).isEqualTo("139");
+        assertThat(grid.getNode(new int[]{9, 1}).getStack().getVector().get(4)).isEqualTo("13");
 
     }
 }

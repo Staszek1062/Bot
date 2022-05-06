@@ -1,8 +1,5 @@
 package botTest;
 
-import org.example.ReadFile;
-
-import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Test {

@@ -9,8 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class StackTest {
     private Stack stack1,stack2;
-    String string = "quot";
-    String check = "check";
+    final String string = "quot";
+    final String check = "check";
     @Before
     public void setUp() throws Exception {
         stack1 = new Stack(10);

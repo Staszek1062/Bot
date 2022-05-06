@@ -9,29 +9,44 @@ import java.util.StringJoiner;
 
 public class ReadFile {
     Scanner scan;
-    int counter;
-    private final Grid grid;
+    int counter=0,iteration=0;
     List<Integer> readCoordinates;   // Matrix (Width,Height) and space in Stack
     char[] readIndexes;     //Indexes for every space in Matrix
-    String readStrIndexes = "";   //Strings Of Indexes
     String[][] itemPlacement;    //Name of item and Coordinates (x,y)
+    Grid grid;
+    String[] quot;
+    List<Integer> temporary;
+
 
     public ReadFile(File Data) throws FileNotFoundException {
 
         scan = new Scanner(new FileReader(Data));
         //                                                  Reading Matrix (Width,Height) and space in Stack
-        while (scan.hasNextInt()) {
-            readCoordinates.add(scan.nextInt());
-        }
+        temporary.clear();
+        quot=scan.nextLine().split(" ");
+        for(String i:quot)
+            temporary.add(Integer.parseInt(i));
+
+        if(iteration==0) ReadGridSetUpFile();
+        if(iteration==1) ReadJobFile();
+        if(iteration==2)ReadResultFile();
+        iteration++;
+
+    }
+
+
+
+    private void ReadGridSetUpFile() {
+        readCoordinates=temporary;
         counter = 0;
-        StringJoiner temp = new StringJoiner("");
+        StringJoiner readStrIndexes = new StringJoiner("");
         //                                                  Reading Strings Of Indexes
         while (counter < readCoordinates.get(1) && scan.hasNextLine()) {
-            temp.add(scan.nextLine());
+            readStrIndexes.add(scan.nextLine());
 
             counter++;
         }
-        readIndexes= temp.toString().toCharArray();
+        readIndexes= readStrIndexes.toString().toCharArray();
         //                                                  Reading Indexes for every space in Matrix
 
         counter = 0;
@@ -39,11 +54,40 @@ public class ReadFile {
         while (scan.hasNextLine()) {
             itemPlacement[counter] = scan.nextLine().split(" ");
             counter++;
+            grid = new Grid(readCoordinates);
+            grid.createGrid(readIndexes);
+            grid.fillGrid(itemPlacement);
         }
-        grid = new Grid(readCoordinates);
-        grid.createGrid(readIndexes);
-        grid.fillGrid(itemPlacement);
     }
+    private void ReadJobFile() {
+
+        String product;
+        int[] bot= new int[2];
+        int[] station = new int[2];
+        int[] productPosition= new int[2];
+        bot[0] = temporary.get(0).;
+        bot[1] = temporary.get(1);
+        quot=scan.nextLine().split(" ");
+
+        station[0] = Integer.parseInt(quot[0]);
+        station[1] = Integer.parseInt(quot[1]);
+        product=scan.nextLine();
+        productPosition=grid.findClosest();
+        grid.getShortestDistance(bot,productPosition);
+        grid.getShortestDistance(bot,station);
+
+    }
+    private void ReadResultFile() {
+        List<Integer> positions = null;
+        int sum,time;
+        sum= Integer.parseInt(quot[0]);
+        time=Integer.parseInt(scan.nextLine());
+
+        while(scan.hasNextInt()){
+            positions.add(scan.nextInt());
+        }
+    }
+
 
 }
 

@@ -3,9 +3,9 @@ package org.example;
 import java.util.Vector;
 
 public class Stack {
-    int MAX;
+    final int MAX;
     int top = -1;
-    Vector<String> a;
+    final Vector<String> a;
 
 
     boolean isEmpty() {
