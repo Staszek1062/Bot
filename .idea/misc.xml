@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="org.example.CallingInterface myFileBot2" />
+      <entry_point TYPE="field" FQNAME="org.example.CallingInterface myFileBot1" />
+      <entry_point TYPE="field" FQNAME="org.example.CallingInterface myFileGrid1" />
+      <entry_point TYPE="field" FQNAME="org.example.CallingInterface myFileResult1" />
+      <entry_point TYPE="field" FQNAME="org.example.GridTest stack" />
+      <entry_point TYPE="field" FQNAME="org.example.GridTest temp" />
+      <entry_point TYPE="field" FQNAME="org.example.GridTest tests" />
+      <entry_point TYPE="field" FQNAME="org.example.ReadFiles typeOfFile" />
+      <entry_point TYPE="field" FQNAME="org.example.CallingInterface First" />
+    </entry_points>
+    <pattern value="org.example.CallingInterface" />
+    <pattern value="org.example.GridTest" />
+    <pattern value="org.example.NodeLink" method="getNeighbourIndex" />
+    <pattern value="org.example.NodeLink" />
+    <pattern value="org.example.objectNode" />
+    <pattern value="org.example.objectNode" method="setIndex" />
+    <pattern value="org.example.objectNode" method="setStack" />
+    <pattern value="org.example.ReadFiles" />
+    <pattern value="org.example.ReadFiles" method="ReadFiles" />
+    <pattern value="org.example.Results" method="&lt;% page content %&gt;" />
+    <pattern value="org.example.Results" />
+    <pattern value="org.example.Stack" method="peek" />
+    <pattern value="org.example.Stack" method="print" />
+    <pattern value="org.example.Stack" />
+    <pattern value="botTest.Test" method="Test" />
+    <pattern value="org.example.NodeLink" method="&lt;% page content %&gt;" />
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">

@@ -18,25 +18,23 @@ public class Stack {
 
     Stack(int number) {
         this.MAX = number;
-        this.a = new Vector<String>(number);
+        this.a = new Vector<>(number);
         for(int i=0; i<number;i++){
                 this.a.add("");
         }
     }
 
-    boolean push(String x) {
+    void push(String x) {
         if (this.top >= this.MAX - 1) {
             System.out.println("Stack Overflow");
-            return false;
         } else {
             this.top++;
             this.a.setElementAt(x,this.top);
-            return true;
         }
     }
-    void setElementAt(String x,int deep){
+    void setElementAt(int deep){
 
-        this.a.setElementAt(x,deep);
+        this.a.setElementAt("checks",deep);
         if (this.top<deep) this.top = deep;
 
     }

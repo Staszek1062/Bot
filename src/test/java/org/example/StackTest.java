@@ -12,12 +12,13 @@ public class StackTest {
     final String string = "quot";
     final String check = "check";
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         stack1 = new Stack(10);
         stack2 = new Stack(10);
 
-        for(int i=0;i<5;i++)
-        stack1.push(string);
+        for(int i=0;i<5;i++) {
+            stack1.push(string);
+        }
 
     }
 
@@ -44,11 +45,11 @@ public class StackTest {
     @DisplayName("Setting one element")
     public void setElementAt() {
 
-    stack1.setElementAt(check+"s",0);
+    stack1.setElementAt(0);
 
     assertThat(stack1.getVector().get(0)).isEqualTo("checks");
 
-    stack1.setElementAt(check+"s",9);
+    stack1.setElementAt(9);
     assertThat(stack1.getVector().get(9)).isEqualTo("checks");
     }
 

@@ -17,9 +17,9 @@ public class GridTest {
     final String s= "check";
     StringJoiner temp;
     int tests =5;
-    char charTab[];
+    char[] charTab;
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         cord.add(10);
         cord.add(3);
         cord.add(5);
@@ -54,12 +54,16 @@ public class GridTest {
     @Test
     public void fillGrid() {
         grid.createGrid(charTab);
-        String[][] input ={{"139","4","1","4"},
-                        {"13","9","1","4"}};
 
-        grid.fillGrid(input);
+        List<String[]> list = new ArrayList<>();
+        list.add(new String[]{"139", "4", "1", "4"});
+        list.add(new String[]{"13", "9", "1", "4"});
+
+        grid.fillGrid(list);
         assertThat(grid.getNode(new int[]{4, 1}).getStack().getVector().get(4)).isEqualTo("139");
         assertThat(grid.getNode(new int[]{9, 1}).getStack().getVector().get(4)).isEqualTo("13");
 
     }
+
+
 }
