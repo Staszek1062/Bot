@@ -11,7 +11,13 @@ public class FindingAlgorithm {
     public FindingAlgorithm(Grid grid) {
         this.grid = grid;
     }
-
+    /**
+     * Takes coordinates of bot and station. Calculate the least time-consuming path for bot-product-station
+     * @param bot The coordinates of bot.
+     * @param station The coordinates of station.
+     * @param product The product name.
+     * @return void
+     */
     public void findEfficientPath(int[] bot, int[] station, String product) {
 
         int[] node = new int[2];
@@ -59,7 +65,10 @@ public class FindingAlgorithm {
         results = new Results(node, totalTime, nodesIndexesTraveledtemp.size() - 1, nodesIndexesTraveledtemp);
 
     }
-
+    /**
+     * Resets parameters of every node.
+     * @return The square root of the given number.
+     */
     void reset() {
         grid.getMap().keySet().forEach(k -> {
             List<int[]> temp = new ArrayList<int[]>();
@@ -70,7 +79,12 @@ public class FindingAlgorithm {
             grid.getMap().get(k).setNodesIndexesTraveled(temp);
         });
     }
-
+    /**
+     * Takes 2 coordinates and calculate the shortest time needed to move to node.
+     * @param fromNode The coordinates of start node.
+     * @param toNode The coordinates end node.
+     * @return Returns time needed to move start-move.
+     */
     public double getShortestDistance(int[] fromNode, int[] toNode) {
         int[] nextNode = fromNode;
         boolean found =false;
@@ -100,10 +114,13 @@ public class FindingAlgorithm {
 
         return grid.getNode(toNode).getDistanceFromSource();
     }
-
-    int[] getNodeShortestDistanced() {
+    /**
+     * Method check shortest unvisited node.
+     * @return The coordinates of next shortest node.
+     */
+    private int[] getNodeShortestDistanced() {
         int[] storedNodeIndex = {0, 0};
-        double storedDist = 1000;
+        double storedDist = Integer.MAX_VALUE;
         NodeCoord =new int[2];
         for (int j = 0; j < grid.getMaxY(); j++) {
             for (int i = 0; i < grid.getMaxX(); i++) {

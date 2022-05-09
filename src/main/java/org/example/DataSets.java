@@ -10,7 +10,7 @@ public class DataSets {
     File myFileGrid2 = new File("src/bin/grid-2.txt"); // Specify the filename
     File myFileBot2 = new File("src/bin/job-2.txt"); // Specify the filename
     File myFileResult2 = new File("src/bin/results-2.txt"); // Specify the filename
-    //ReadWriteFiles First = new ReadWriteFiles(myFileGrid1,myFileBot1,myFileResult1);
-    ReadWriteFiles Second= new ReadWriteFiles(myFileGrid2,myFileBot2,myFileResult2);
+    ReadWriteFiles First = new ReadWriteFiles(myFileGrid1,myFileBot1,myFileResult1);
+    //ReadWriteFiles Second= new ReadWriteFiles(myFileGrid2,myFileBot2,myFileResult2);
 
 }

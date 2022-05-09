@@ -15,7 +15,12 @@ public class Node {
     private Stack stack;
     private char index;
 
-
+    /**
+     * Create new node
+     * @param stack The stack inserted into node.
+     * @param nodeLinks The links .
+     * @param index The file results.
+     * */
     public Node(Stack stack, NodeLink[] nodeLinks, char index) {
         this.stack = stack;
         this.nodeLinks = nodeLinks;

@@ -1,18 +1,56 @@
-package org.example;
+ /**
+     * Takes array of chars and creates HashMap of
+     * keys(coordinates) and values(Node)
+     * @see  Class Node(Stack s,NodeLink[] n,char c)
+     * @param Index The array of chars indexes of every node.
+     * @return void
+     */
+    public void createGrid(char[] Index) {
+        IndexVal = new double[maxX][maxY];
+        for (int j = 0; j < maxY; ++j) {
+            for (int i = 0; i < maxX; ++i) {
+                IndexVal[i][j] = switch (Index[(j * maxX) + i]) {
+                    case 'H' -> 0.5;
+                    case 'B' -> 1;
+                    case 'S' -> 2;
+                    default -> 1000000;
+                };
+            }
+        }
+        for (int i = 0; i < Index.length; i++) {
+            coordinates = new int[2];
+            coordinates[0] = i % maxX;
+            coordinates[1] = i / maxX;
+            map.put(coordinates, new Node(new Stack(stackSize), createLinks(coordinates, IndexVal), Index[i]));
+        }
+    }
+    /**
+     * Takes products in list and places them in designated Nodes.
+     * @param productPlacement The list of strings each string contains product and his position.
+     * @see  Class Node(Stack s,NodeLink[] n,char c)
+     * @return The square root of the given number.
+     */
+    public void fillGrid(List<String[]> productPlacement) {
+        int[] itemXY = new int[2];
+        int itemZ;
+        String itemName;
 
-import java.io.*;
-import java.util.*;
+        for (String[] strings : productPlacement) {
+            if(strings[0]==null) break;
+            itemName = strings[0];
+            itemXY[0] = Integer.parseInt(strings[1]);
+            itemXY[1] = Integer.parseInt(strings[2]);
+            itemZ = Integer.parseInt(strings[3]);
 
-public class ReadWriteFiles {
-    Scanner scan;
-
-    int counter=0, typeOfFile =0;
-// Matrix (Width,Height) and space in Stack
-    char[] readIndexes;     //Indexes for every space in Matrix
-    String[] itemPlacement ;    //Name of item and Coordinates (x,y)
-    Grid grid;
-    FindingAlgorithm algo;
-    String[] quot;
+            getNode(itemXY).getStack().getVector().setElementAt(itemName, itemZ);
+        }
+    }
+    /**
+     * Takes coordinates and movementValues and creates links for every node to aside nodes.
+     * @param coordinates The coordinates.
+     * @param movementValues The time needed to travel each node.
+     * @return The square root of the given number.
+     */
 
     /**
      * Takes files and check if results from file are same as results from program.
@@ -23,7 +61,7 @@ public class ReadWriteFiles {
     public ReadWriteFiles(File myFileGrid, File myFileBot, File myFileResult)  {
 
         ReadGridSetUpFile(myFileGrid);
-
+ReadGridSetUpFile(myFileGrid);
         ReadJobFile(myFileBot);
        ;
         ReadResultFile(myFileResult);
@@ -76,7 +114,7 @@ public class ReadWriteFiles {
         }
         readIndexes= readStrIndexes.toString().toCharArray();
         counter = 0;
-       
+
         while (scan.hasNextLine()) {
 
             itemPlacement = scan.nextLine().split(" ", 4);
@@ -128,17 +166,3 @@ public class ReadWriteFiles {
      * @param myFile The file results.
      * @return void
      */
-    private void ReadResultFile(File myFile) {
-        try{scan = new Scanner(new FileReader(myFile));}
-        catch(FileNotFoundException e){
-            System.out.println("File3 not found");
-        }
-
-        scan.close();
-    }
-
-
-}
-
-
-
