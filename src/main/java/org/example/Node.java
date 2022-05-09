@@ -8,7 +8,7 @@ public class Node {
     private final List<int[]> nodesIndexesTraveled= new ArrayList<>();
 
     private  double distanceFromSource = 1000;
-    private boolean visited =false;
+    private boolean visited =true;
     private int nodesTraveled=1;
 
     private final NodeLink[] nodeLinks;
@@ -25,6 +25,7 @@ public class Node {
         this.stack = stack;
         this.nodeLinks = nodeLinks;
         this.index=index;
+
 
 
     }

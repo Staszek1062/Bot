@@ -16,7 +16,6 @@ public class FindingAlgorithm {
      * @param bot The coordinates of bot.
      * @param station The coordinates of station.
      * @param product The product name.
-     * @return void
      */
     public void findEfficientPath(int[] bot, int[] station, String product) {
 
@@ -24,8 +23,8 @@ public class FindingAlgorithm {
 
         double totalTime, accessTime, movementTime;
         totalTime = Integer.MAX_VALUE;
-        List<int[]> nodesIndexesTraveled = new ArrayList<int[]>();
-        List<int[]> nodesIndexesTraveledtemp = new ArrayList<int[]>();
+        List<int[]> nodesIndexesTraveled = new ArrayList<>();
+        List<int[]> nodesIndexesTraveledtemp = new ArrayList<>();
         for (int[] k : grid.getMap().keySet()) {
 
             nodesIndexesTraveled.clear();
@@ -55,7 +54,7 @@ public class FindingAlgorithm {
                         default -> 1000000;
                     };
                     node = k;
-                    totalTime =  movementTime + accessTime;;
+                    totalTime =  movementTime + accessTime;
                     nodesIndexesTraveledtemp.clear();
                     nodesIndexesTraveledtemp.addAll(nodesIndexesTraveled);
                 }
@@ -67,12 +66,12 @@ public class FindingAlgorithm {
     }
     /**
      * Resets parameters of every node.
-     * @return The square root of the given number.
      */
     void reset() {
         grid.getMap().keySet().forEach(k -> {
-            List<int[]> temp = new ArrayList<int[]>();
+            List<int[]> temp = new ArrayList<>();
             temp.add(k);
+            if(grid.getNode(k).getIndex()!='O')
             grid.getMap().get(k).setVisited(false);
             grid.getMap().get(k).setDistanceFromSource(1000);
             grid.getMap().get(k).getNodesIndexesTraveled().clear();
@@ -87,7 +86,12 @@ public class FindingAlgorithm {
      */
     public double getShortestDistance(int[] fromNode, int[] toNode) {
         int[] nextNode = fromNode;
-        boolean found =false;
+        int[] searchGrid = new int[4];
+        searchGrid[0]=Math.min(Math.max(fromNode[0],toNode[0])+3,grid.getMaxX());
+        searchGrid[1]=Math.min(Math.max(fromNode[1],toNode[1])+3,grid.getMaxY());
+        searchGrid[2]=Math.max(Math.min(fromNode[0],toNode[0])-3,0);
+        searchGrid[3]=Math.max(Math.min(fromNode[1],toNode[1])-3,0);
+
         grid.getNode(nextNode).setDistanceFromSource(0);
 
         for (int[] k : grid.getMap().keySet()) {
@@ -105,7 +109,7 @@ public class FindingAlgorithm {
             }
 
             grid.getNode(nextNode).setVisited(true);
-            nextNode = this.getNodeShortestDistanced();
+            nextNode = this.getNodeShortestDistanced(searchGrid);
             if(!grid.getNode(toNode).isNotVisited()) {
                 break;
             }
@@ -118,12 +122,15 @@ public class FindingAlgorithm {
      * Method check shortest unvisited node.
      * @return The coordinates of next shortest node.
      */
-    private int[] getNodeShortestDistanced() {
+    private int[] getNodeShortestDistanced(int[] searchGrid) {
         int[] storedNodeIndex = {0, 0};
         double storedDist = Integer.MAX_VALUE;
         NodeCoord =new int[2];
-        for (int j = 0; j < grid.getMaxY(); j++) {
-            for (int i = 0; i < grid.getMaxX(); i++) {
+
+        for (int j = searchGrid[3]; j < searchGrid[1]; j++) {
+
+            for (int i = searchGrid[2]; i < searchGrid[0]; i++) {
+
                 NodeCoord[0] = i;
                 NodeCoord[1] = j;
 
@@ -134,7 +141,7 @@ public class FindingAlgorithm {
                 }
             }
         }
-        System.out.print(storedNodeIndex[0]+" "+storedNodeIndex[1]+"      ");
+
         return storedNodeIndex;
     }
 }

@@ -11,6 +11,8 @@
       <entry_point TYPE="field" FQNAME="org.example.GridTest tests" />
       <entry_point TYPE="field" FQNAME="org.example.ReadFiles typeOfFile" />
       <entry_point TYPE="field" FQNAME="org.example.CallingInterface First" />
+      <entry_point TYPE="field" FQNAME="org.example.DataSets myFileBot1" />
+      <entry_point TYPE="field" FQNAME="org.example.DataSets Second" />
     </entry_points>
     <pattern value="org.example.CallingInterface" />
     <pattern value="org.example.GridTest" />
@@ -28,6 +30,7 @@
     <pattern value="org.example.Stack" />
     <pattern value="botTest.Test" method="Test" />
     <pattern value="org.example.NodeLink" method="&lt;% page content %&gt;" />
+    <pattern value="org.example.Node" method="setIndex" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">

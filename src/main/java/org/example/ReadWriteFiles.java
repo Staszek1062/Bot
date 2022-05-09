@@ -25,7 +25,6 @@ public class ReadWriteFiles {
         ReadGridSetUpFile(myFileGrid);
 
         ReadJobFile(myFileBot);
-       ;
         ReadResultFile(myFileResult);
         try {
             WriteResult();
@@ -35,7 +34,6 @@ public class ReadWriteFiles {
     }
     /**
      * Writes result file output.txt
-     * @return void
      */
     private void WriteResult() throws IOException {
         FileWriter outputResults = new FileWriter("output.txt");
@@ -52,7 +50,6 @@ public class ReadWriteFiles {
     /**
      * Takes file and setup grid.
      * @param myFile The file grid set up.
-     * @return void
      */
     private void ReadGridSetUpFile(File myFile)  {
         try{scan = new Scanner(new FileReader(myFile));}
@@ -93,7 +90,6 @@ public class ReadWriteFiles {
     /**
      * Takes file and setup bot path.
      * @param myFile The file bot setup.
-     * @return void
      */
     private void ReadJobFile(File myFile)  {
         try{scan = new Scanner(new FileReader(myFile));}
@@ -126,7 +122,6 @@ public class ReadWriteFiles {
     /**
      * Takes result file read it.
      * @param myFile The file results.
-     * @return void
      */
     private void ReadResultFile(File myFile) {
         try{scan = new Scanner(new FileReader(myFile));}

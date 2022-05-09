@@ -27,7 +27,6 @@ public class Grid {
     /**
      * Takes list of ints and initializes grid,map,stack sizes.
      * @param setupCoordinates The list of ints parameters for setup.
-     * @return void
      */
     public Grid(List<Integer> setupCoordinates) {
         stackSize = setupCoordinates.get(2);
@@ -43,7 +42,6 @@ public class Grid {
      * keys(coordinates) and values(Node)
      * @see  Grid
      * @param Index The array of chars indexes of every node.
-     * @return void
      */
     public void createGrid(char[] Index) {
         IndexVal = new double[maxX][maxY];
@@ -68,7 +66,6 @@ public class Grid {
      * Takes products in list and places them in designated Nodes.
      * @param productPlacement The list of strings each string contains product and his position.
      * @see  Grid#createGrid(char[])
-     * @return The square root of the given number.
      */
     public void fillGrid(List<String[]> productPlacement) {
         int[] itemXY = new int[2];
