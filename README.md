@@ -36,8 +36,11 @@
   
   Next thing program does is opening job-1.txt 
   in this file we have 3 lines:
+  
   1.line: bot starting coordninates
+  
   2.line: station coordinates
+  
   3.line: product - this product is our searched product.
   
   # Description
