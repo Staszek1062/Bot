@@ -1,7 +1,7 @@
-# Bot in warehouse
+# Warehouse
 
-
-
+  # Description
+   WMS designed from the idea that huge saving in cost and time can be achieved by optimizing the performance of the warehouse by minimizing the manual work that has to be done.
 ## Dictionary 
 - [Grid](src/main/java/org/example/Grid.java) the surface of the space where we can store products HashMap<(x,y),Node>
 - [Node](src/main/java/org/example/Node.java) for at each space in grid we create Node 
@@ -43,7 +43,7 @@
   
   3.line: product - this product is our searched product.
   
-  # Description
+
   Knowing your storage configuration, program finds the fastest (time) route for the bot to from your chosen one
 starting point on the grid to searched product and delivered it to the station
 receiving at coordinates.
