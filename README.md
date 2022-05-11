@@ -1,7 +1,7 @@
 # Warehouse
 
   # Description
-   WMS designed from the idea that huge saving in cost and time can be achieved by optimizing the performance of the warehouse by minimizing the manual work that has to be done.
+   WMS designed from the idea that huge saving in cost and time can be achieved by optimizing the performance of the warehouse by minimizing the manual work that has to be done. Products storage and access routine is done by bots.
 ## Dictionary 
 - [Grid](src/main/java/org/example/Grid.java) the surface of the space where we can store products HashMap<(x,y),Node>
 - [Node](src/main/java/org/example/Node.java) for at each space in grid we create Node 
