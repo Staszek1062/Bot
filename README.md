@@ -1,5 +1,5 @@
 # Warehouse
-Idea taken from :
+Idea taken from OCADO Technology:
 [![Technology Pioneers](https://przemysl-40.pl/wp-content/uploads/aa-2.jpg)](https://www.youtube.com/watch?v=4DKrcpa8Z_E=35s "Technology Pioneers")
   # Description
    WMS designed from the idea that huge saving in cost and time can be achieved by optimizing the performance of the warehouse by minimizing the manual work that has to be done. Products storage and access routine is done by bots.
