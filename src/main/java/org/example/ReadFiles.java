@@ -3,7 +3,7 @@ package org.example;
 import java.io.*;
 import java.util.*;
 
-public class ReadWriteFiles {
+public class ReadFiles {
     Scanner scan;
 
 
@@ -12,7 +12,7 @@ public class ReadWriteFiles {
     String[] quot;
 
     Grid grid;
-    FindingAlgorithm algo;
+    public FindingAlgorithm algo;
     ResourceFileReader fileReader;
 
 
@@ -23,24 +23,23 @@ public class ReadWriteFiles {
      * @param myFileBot The file job set up.
      * @param myFileResult The file result check.
      */
-    public ReadWriteFiles(File myFileGrid, File myFileBot, File myFileResult)  {
+    public ReadFiles(String myFileGrid, String myFileBot, String myFileResult)  {
 
         readGridSetUpFile(myFileGrid);
         readJobFile(myFileBot);
-        readResultFile(myFileResult);
+        //readResultFile(myFileResult);
     }
     /**
      * Writes result file output.txt
      */
     private void writeResult() throws IOException {
+
         FileWriter outputResults = new FileWriter("output.txt");
-        outputResults.write(algo.results.nodesTraveled()+"\n");
-        outputResults.write(algo.results.time()+"\n");
-
-        for(int i = algo.results.nodesIndexesTraveled().size()-1; i>=0; i--) {
-            outputResults.write(algo.results.nodesIndexesTraveled().get(i)[0]+" "+ algo.results.nodesIndexesTraveled().get(i)[1]+"\n");
+        List<int[]> links=algo.results.nodesIndexesTraveled();
+        outputResults.write(algo.results.nodesTraveled()+"\n"+algo.results.time()+"\n");
+        for(int i = links.size()-1; i>=0; i--) {
+            outputResults.write(links.get(i)[0]+" "+ links.get(i)[1]+"\n");
         }
-
         outputResults.close();
     }
 
@@ -48,7 +47,7 @@ public class ReadWriteFiles {
      * Takes file and setup grid.
      * @param myFile The file grid set up.
      */
-    private void readGridSetUpFile(File myFile)  {
+    private void readGridSetUpFile(String myFile)  {
         List<String> readLines;
         List<String[]> readItemPlacement= new ArrayList<>();
         List<Integer> readCoordinates= new ArrayList<>();
@@ -57,7 +56,7 @@ public class ReadWriteFiles {
 
         fileReader= new ResourceFileReader();
         itemPlacement = new String[4];
-        readLines=fileReader.readLines("grid-1.txt");
+        readLines=fileReader.readLines(myFile);
         int counter=0;
 
         quot=readLines.get(counter).split(" ");
@@ -90,7 +89,7 @@ public class ReadWriteFiles {
      * Takes file and setup bot path.
      * @param myFile The file bot setup.
      */
-    private void readJobFile(File myFile)  {
+    private void readJobFile(String myFile)  {
 
         List<String> readLines=fileReader.readLines("grid-2.txt");
         algo = new FindingAlgorithm(grid);
@@ -110,8 +109,6 @@ public class ReadWriteFiles {
         product=readLines.get(2);
         algo.findEfficientPath(bot,station,product);
 
-        for(int[] i: algo.results.nodesIndexesTraveled())
-            System.out.print("  "+ Arrays.toString(i));
 
 
     }
@@ -119,7 +116,7 @@ public class ReadWriteFiles {
      * Takes result file read it.
      * @param myFile The file results.
      */
-    private void readResultFile(File myFile) {
+    private void readResultFile(String myFile) {
 
 
 
