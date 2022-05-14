@@ -6,13 +6,16 @@ import java.util.*;
 public class ReadWriteFiles {
     Scanner scan;
 
-    int counter=0, typeOfFile =0;
-// Matrix (Width,Height) and space in Stack
-    char[] readIndexes;     //Indexes for every space in Matrix
-    String[] itemPlacement ;    //Name of item and Coordinates (x,y)
+
+    char[] readIndexes;
+    String[] itemPlacement;
+    String[] quot;
+
     Grid grid;
     FindingAlgorithm algo;
-    String[] quot;
+    ResourceFileReader fileReader;
+
+
 
     /**
      * Takes files and check if results from file are same as results from program.
@@ -22,20 +25,14 @@ public class ReadWriteFiles {
      */
     public ReadWriteFiles(File myFileGrid, File myFileBot, File myFileResult)  {
 
-        ReadGridSetUpFile(myFileGrid);
-
-        ReadJobFile(myFileBot);
-        ReadResultFile(myFileResult);
-        try {
-            WriteResult();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        readGridSetUpFile(myFileGrid);
+        readJobFile(myFileBot);
+        readResultFile(myFileResult);
     }
     /**
      * Writes result file output.txt
      */
-    private void WriteResult() throws IOException {
+    private void writeResult() throws IOException {
         FileWriter outputResults = new FileWriter("output.txt");
         outputResults.write(algo.results.nodesTraveled()+"\n");
         outputResults.write(algo.results.time()+"\n");
@@ -51,85 +48,81 @@ public class ReadWriteFiles {
      * Takes file and setup grid.
      * @param myFile The file grid set up.
      */
-    private void ReadGridSetUpFile(File myFile)  {
-        try{scan = new Scanner(new FileReader(myFile));}
-        catch(FileNotFoundException e){
-            System.out.println("File1 not found");
-        }
+    private void readGridSetUpFile(File myFile)  {
+        List<String> readLines;
+        List<String[]> readItemPlacement= new ArrayList<>();
         List<Integer> readCoordinates= new ArrayList<>();
 
-        itemPlacement = new String[4];
-        List<String[]> readItemPlacement= new ArrayList<>() ;
+        StringJoiner readStrIndexes = new StringJoiner("");
 
-        quot=scan.nextLine().split(" ");
+        fileReader= new ResourceFileReader();
+        itemPlacement = new String[4];
+        readLines=fileReader.readLines("grid-1.txt");
+        int counter=0;
+
+        quot=readLines.get(counter).split(" ");
+        System.out.println(readLines.get(0));
         for(String i:quot) {
             readCoordinates.add(Integer.parseInt(i));
         }
-        StringJoiner readStrIndexes = new StringJoiner("");
-        counter=0;
-        while (counter < readCoordinates.get(1) && scan.hasNextLine()) {
-            readStrIndexes.add(scan.nextLine());
+        counter++;
+        while (counter <= readCoordinates.get(1) ) {
+            System.out.println(readLines.get(counter));
+            readStrIndexes.add(readLines.get(counter));
             counter++;
         }
-        readIndexes= readStrIndexes.toString().toCharArray();
-        counter = 0;
-       
-        while (scan.hasNextLine()) {
-
-            itemPlacement = scan.nextLine().split(" ", 4);
+        while (readLines.size()>counter) {
+            System.out.println(readLines.get(counter));
+            itemPlacement = readLines.get(counter).split(" ", 4);
             counter++;
-
-
             readItemPlacement.add(itemPlacement);
         }
+
+        readIndexes= readStrIndexes.toString().toCharArray();
+
         grid = new Grid(readCoordinates);
         grid.createGrid(readIndexes);
         grid.fillGrid(readItemPlacement);
-        scan.close();
+
     }
+
     /**
      * Takes file and setup bot path.
      * @param myFile The file bot setup.
      */
-    private void ReadJobFile(File myFile)  {
-        try{scan = new Scanner(new FileReader(myFile));}
-        catch(FileNotFoundException e){
-            System.out.println("File2 not found");
-        }
+    private void readJobFile(File myFile)  {
+
+        List<String> readLines=fileReader.readLines("grid-2.txt");
         algo = new FindingAlgorithm(grid);
         String product;
         int[] bot= new int[2];
         int[] station = new int[2];
 
 
-        quot=scan.nextLine().split(" ");
+        quot=readLines.get(0).split(" ");
         bot[0] = Integer.parseInt(quot[0]);
         bot[1] = Integer.parseInt(quot[1]);
 
-        quot=scan.nextLine().split(" ");
+        quot=readLines.get(1).split(" ");
         station[0] = Integer.parseInt(quot[0]);
         station[1] = Integer.parseInt(quot[1]);
 
-        product=scan.nextLine();
+        product=readLines.get(2);
         algo.findEfficientPath(bot,station,product);
 
-        System.out.println("Product at:  "+ Arrays.toString(algo.results.productCoords())+"  |   time: "+ algo.results.time()+" lenghtInNodes: "+ algo.results.nodesTraveled());
         for(int[] i: algo.results.nodesIndexesTraveled())
             System.out.print("  "+ Arrays.toString(i));
-        scan.close();
+
 
     }
     /**
      * Takes result file read it.
      * @param myFile The file results.
      */
-    private void ReadResultFile(File myFile) {
-        try{scan = new Scanner(new FileReader(myFile));}
-        catch(FileNotFoundException e){
-            System.out.println("File3 not found");
-        }
+    private void readResultFile(File myFile) {
 
-        scan.close();
+
+
     }
 
 

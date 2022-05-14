@@ -87,10 +87,11 @@ public class FindingAlgorithm {
     public double getShortestDistance(int[] fromNode, int[] toNode) {
         int[] nextNode = fromNode;
         int[] searchGrid = new int[4];
-        searchGrid[0]=Math.min(Math.max(fromNode[0],toNode[0])+3,grid.getMaxX());
-        searchGrid[1]=Math.min(Math.max(fromNode[1],toNode[1])+3,grid.getMaxY());
-        searchGrid[2]=Math.max(Math.min(fromNode[0],toNode[0])-3,0);
-        searchGrid[3]=Math.max(Math.min(fromNode[1],toNode[1])-3,0);
+        int gap =5;
+        searchGrid[0]=Math.min(Math.max(fromNode[0],toNode[0])+gap,grid.getMaxX());
+        searchGrid[1]=Math.min(Math.max(fromNode[1],toNode[1])+gap,grid.getMaxY());
+        searchGrid[2]=Math.max(Math.min(fromNode[0],toNode[0])-gap,0);
+        searchGrid[3]=Math.max(Math.min(fromNode[1],toNode[1])-gap,0);
 
         grid.getNode(nextNode).setDistanceFromSource(0);
 
